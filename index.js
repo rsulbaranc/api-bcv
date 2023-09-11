@@ -17,7 +17,9 @@ const pupeeteer = require('puppeteer');
         const arr = [];
 
         for (let item of items) {
-            arr.push(item.innerText);
+            let tasa = item.innerText;
+            tasa = tasa.replace(',', '.');
+            arr.push(Number(tasa));
         }
 
         return arr;
@@ -28,14 +30,16 @@ const pupeeteer = require('puppeteer');
         return item.innerText;
     });
     //await page.screenshot({ path: 'google.png' });
-    const [EUR, CNY,TRY, RUB, USD] = monedas;
-    console.log(`1 EUR = ${EUR} Bs`);
-    console.log(`1 CNY = ${CNY} Bs`);
-    console.log(`1 TRY = ${TRY} Bs`);
-    console.log(`1 RUB = ${RUB} Bs`);
-    console.log(`1 USD = ${USD} Bs`);
+    let [EUR, CNY,TRY, RUB, USD] = monedas;
+    // console.log(`1 EUR = ${EUR} Bs`);
+    // console.log(`1 CNY = ${CNY} Bs`);
+    // console.log(`1 TRY = ${TRY} Bs`);
+    // console.log(`1 RUB = ${RUB} Bs`);
+    // console.log(`1 USD = ${USD} Bs`);
+
+    console.log(`La tasa del dia es: ${USD}`);
+    console.log(`Tienes que pagar: ${75.9*USD}`)
     console.log(`${fecha}`);
 
-    console.log(`Tienes que pagar: ${75.9*USD}`)
     await browser.close();
 })();
