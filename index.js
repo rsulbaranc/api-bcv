@@ -37,8 +37,10 @@ const pupeeteer = require('puppeteer');
     // console.log(`1 RUB = ${RUB} Bs`);
     // console.log(`1 USD = ${USD} Bs`);
 
+    const monto = 21*23*0.3
+
     console.log(`La tasa del dia es: ${USD}`);
-    console.log(`Tienes que pagar: ${75.9*USD}`)
+    console.log(`Tienes que pagar: ${monto*USD}`)
     console.log(`${fecha}`);
 
     await browser.close();
